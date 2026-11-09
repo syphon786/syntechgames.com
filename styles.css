@@ -55,7 +55,8 @@ body {
 }
 
 a { color: inherit; text-decoration: none; }
-img, video { display: block; max-width: 100%; }
+/* height:auto keeps the width/height attributes from stretching scaled images. */
+img, video { display: block; max-width: 100%; height: auto; }
 .container { max-width: 1160px; margin: 0 auto; padding: 0 16px; }
 @media (min-width: 640px) { .container { padding: 0 24px; } }
 
