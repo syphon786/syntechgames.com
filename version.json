@@ -1,6 +1,6 @@
 {
-  "minVersion": "1.6.1",
-  "latestVersion": "1.6.1",
+  "minVersion": "2.0.0",
+  "latestVersion": "2.0.0",
   "updateUrl": "https://play.google.com/store/apps/details?id=com.syntech.wordsurge",
-  "message": "A new version of WordSurge is available. Please update to continue playing."
+  "message": "WordSurge 2.0 is here, with new leaderboards, weekly seasons, progress backup and 210 achievements. Please update to keep playing."
 }
