@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WordSurge: stack, find, surge</title>
+  <meta name="description" content="WordSurge is a falling-letter word game. Stack pieces, trace words in any direction, chain them into a Surge and climb weekly Google Play Games leaderboards. Free on Google Play.">
+  <meta name="theme-color" content="#03030d">
+  <meta property="og:title" content="WordSurge: stack, find, surge">
+  <meta property="og:description" content="Falling letters, eight-way words, weekly seasons and 210 achievements. Free on Google Play.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://syntechgames.com/wordsurge.html">
+  <meta property="og:image" content="https://syntechgames.com/assets/wordsurge/feature-graphic.jpg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/wordsurge/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <nav class="nav" aria-label="Main">
+    <div class="nav-inner">
+      <a href="/" class="brand" aria-label="SynTech Games home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 35 11.5v17L20 37 5 28.5v-17Z" fill="#1a0b14" stroke="#ff5a6e" stroke-width="2.5" stroke-linejoin="round"/><path d="M20 12v16M15 15.5l5-3.5 5 3.5M15 24.5l5 3.5 5-3.5" stroke="#ff8a98" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="brand-name">SynTech <span>Games</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#new">What’s new</a>
+        <a href="#modes">Modes</a>
+        <a href="#how">How to play</a>
+        <a href="#compete">Leaderboards</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.syntech.wordsurge" class="btn btn-primary btn-small" rel="noopener">Get it free</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="studio-mark">
+            <img src="/assets/wordsurge/icon-180.png" width="72" height="72" alt="WordSurge icon" style="border-radius:18px;box-shadow:0 0 30px rgba(64,226,243,.35)">
+            <span class="chip live">New: version 2.0</span>
+          </div>
+          <h1 class="h1">Stack. Find. <span class="glow-text">Surge.</span></h1>
+          <p class="lead">Letter pieces fall into a glowing well. Stack them, trace words in any of eight directions to clear the board, and chain words fast enough to Surge. Then take your score to the weekly leaderboards.</p>
+          <div class="hero-actions">
+            <a href="https://play.google.com/store/apps/details?id=com.syntech.wordsurge" class="btn btn-primary btn-store" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 1.8 13.8 12 3.6 22.2a1 1 0 0 1-.6-.9V2.7a1 1 0 0 1 .6-.9Zm10.9 10.9 2.3 2.3-10.9 6.3 8.6-8.6Zm3.2-3.2 2.3 2.3a1 1 0 0 1 0 1.4l-2.3 2.3-2.3-2.5 2.3-3.5ZM5.9 2.7 16.8 9l-2.3 2.3-8.6-8.6Z"/></svg>
+              <span class="store-text"><small>Get it on</small><b>Google Play</b></span>
+            </a>
+            <a href="#trailer" class="btn btn-ghost">Watch the trailer</a>
+          </div>
+          <p class="hero-note">Free on Android · No account needed · iPhone version planned</p>
+        </div>
+        <div class="reveal">
+          <div class="shot"><img src="/assets/wordsurge/screens/02-wordsurge.jpg" width="900" height="1600" alt="WordSurge gameplay: letter pieces stacking in the well with bonus squares" fetchpriority="high"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trailer -->
+    <section id="trailer" style="padding-top:24px">
+      <div class="container">
+        <div class="video-wrap reveal">
+          <video controls preload="none" playsinline poster="/assets/wordsurge/trailer-poster.jpg" aria-label="WordSurge trailer">
+            <source src="/assets/wordsurge/trailer.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- What's new -->
+    <section id="new">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">WordSurge 2.0</span>
+          <h2 class="h2">The biggest update yet</h2>
+          <p class="lead">A new look, new ways to compete, and a game that teaches itself.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="panel card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></div>
+            <h3 class="h3">Google Play Games leaderboards</h3>
+            <p>Your Play Games profile, name and avatar, on seven boards: WordSurge, Compete, three XP boards, Daily puzzle and Daily Surge.</p>
+          </div>
+          <div class="panel card reveal" style="--d:1">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div>
+            <h3 class="h3">Weekly seasons</h3>
+            <p>A fresh seven-day season every Sunday, with daily boards that reset at the same moment worldwide.</p>
+          </div>
+          <div class="panel card reveal" style="--d:2">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19.5 10 4 4 0 0 1 18 18H7Z"/><path d="M12 12v6M9.5 14.5 12 12l2.5 2.5"/></svg></div>
+            <h3 class="h3">Progress backup</h3>
+            <p>Sign in to Play Games and your progress is saved to your profile. New phone? Restore it in a tap.</p>
+          </div>
+          <div class="panel card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg></div>
+            <h3 class="h3">210 achievements</h3>
+            <p>Badges to chase in every mode, with progress bars on your results so you always know what’s next.</p>
+          </div>
+          <div class="panel card reveal" style="--d:1">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5a2 2 0 1 1 4 0v6"/><path d="M13 9a2 2 0 1 1 4 0v3a7 7 0 0 1-7 7h-.5A6.5 6.5 0 0 1 3 12.5V11a2 2 0 1 1 4 0"/></svg></div>
+            <h3 class="h3">Easier controls</h3>
+            <p>Tap either side of the piece to move it, swipe up to rotate, swipe down to drop. Comfortable with one hand or two.</p>
+          </div>
+          <div class="panel card reveal" style="--d:2">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2V5ZM22 5h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8V5Z"/></svg></div>
+            <h3 class="h3">Learn as you play</h3>
+            <p>A hands-on tutorial covers every control and power-up, and How to Play explains the rest in plain words.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modes -->
+    <section id="modes">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Game modes</span>
+          <h2 class="h2">Six ways to play, plus two dailies</h2>
+          <p class="lead">From high-speed stacking to calm classic word search, there’s a mode for every mood.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="panel card mode reveal" style="--m:var(--accent)">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2" opacity=".45"/><rect x="3" y="13" width="8" height="8" rx="2" opacity=".45"/></svg></div>
+            <h3 class="h3">WordSurge</h3><p class="tag">Stack · Find · Surge</p>
+            <p>The flagship. Pieces fall faster every two minutes. Clear words to keep the stack down, chain them to climb to ×10, then Surge.</p>
+            <div class="facts"><span class="chip">Speed 1–10</span><span class="chip">Power-ups</span><span class="chip">One save a run</span></div>
+          </article>
+          <article class="panel card mode reveal" style="--m:var(--adventure);--d:1">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2ZM9 4v14M15 6v14"/></svg></div>
+            <h3 class="h3">Adventure</h3><p class="tag">Explore the world</p>
+            <p>Travel 10 themed tracks and 250 stages with your explorer. Finish a track to earn new gear for them to wear.</p>
+            <div class="facts"><span class="chip">10 tracks</span><span class="chip">250 stages</span><span class="chip">Explorer gear</span></div>
+          </article>
+          <article class="panel card mode reveal" style="--m:var(--mystery);--d:2">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg></div>
+            <h3 class="h3">Mystery</h3><p class="tag">Solve the riddle</p>
+            <p>Crack a riddle, then find its answer hidden in the grid. 150 mysteries, with clues if you get stuck.</p>
+            <div class="facts"><span class="chip">150 riddles</span><span class="chip">Clues</span></div>
+          </article>
+          <article class="panel card mode reveal" style="--m:var(--compete)">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg></div>
+            <h3 class="h3">Compete</h3><p class="tag">Race the clock</p>
+            <p>Start with 60 seconds. Every word buys more time. Power up with Shuffle, Hint, ×10 and +10s, and chase the Compete board.</p>
+            <div class="facts"><span class="chip">60s start</span><span class="chip">4 power-ups</span><span class="chip">Online</span></div>
+          </article>
+          <article class="panel card mode reveal" style="--m:var(--adaptive);--d:1">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3 class="h3">Adaptive</h3><p class="tag">Test your memory</p>
+            <p>The word list flashes, then hides. Remember the words and find them all before they slip away.</p>
+            <div class="facts"><span class="chip">Memory</span><span class="chip">Focus</span></div>
+          </article>
+          <article class="panel card mode reveal" style="--m:var(--classic);--d:2">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+            <h3 class="h3">Classic</h3><p class="tag">Classic word puzzle</p>
+            <p>The relaxed word search. Keep finding words within 10 seconds of each other to build a streak.</p>
+            <div class="facts"><span class="chip">Streaks</span><span class="chip">No pressure</span></div>
+          </article>
+        </div>
+        <div class="grid grid-2" style="margin-top:16px">
+          <article class="panel card mode reveal" style="--m:var(--gold)">
+            <h3 class="h3">Daily puzzle</h3><p class="tag">One puzzle a day</p>
+            <p>A new word search every day, the same for every player. Keep your streak alive and see where you rank on the Daily puzzle board.</p>
+          </article>
+          <article class="panel card mode reveal" style="--m:var(--accent);--d:1">
+            <h3 class="h3">Daily Surge</h3><p class="tag">Three tries · three minutes</p>
+            <p>Today’s WordSurge board, the same for everyone. Three minutes a run, three tries a day, and your best goes on the Daily Surge board.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to play -->
+    <section id="how">
+      <div class="container split">
+        <div class="reveal">
+          <span class="eyebrow">How to play WordSurge</span>
+          <h2 class="h2">Easy to learn. Hard to put down.</h2>
+          <div class="steps grid" style="margin-top:28px">
+            <div class="panel step">
+              <h3 class="h3">Steer the falling piece</h3>
+              <p>Tap left or right of the piece, anywhere on that side, to move it a column. Swipe up to rotate, swipe down to drop it into place.</p>
+            </div>
+            <div class="panel step">
+              <h3 class="h3">Trace words to clear them</h3>
+              <p>Drag across 3 or more letters in a straight line, in any of eight directions. Letters above fall in the pieces they landed as.</p>
+            </div>
+            <div class="panel step">
+              <h3 class="h3">Chain words to Surge</h3>
+              <p>Find another word within 4 seconds to raise your multiplier to ×10. At the top you Surge: every word scores ×1.5 more.</p>
+            </div>
+            <div class="panel step">
+              <h3 class="h3">Land on bonus squares</h3>
+              <p>Letter squares multiply that letter; word squares multiply the whole word.</p>
+              <div class="squares" aria-label="Bonus squares: L2, L3, W2, W3, W5">
+                <span class="sq l">L2</span><span class="sq l">L3</span><span class="sq w">W2</span><span class="sq w">W3</span><span class="sq x5">W5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="--d:1">
+          <div class="shot"><img src="/assets/wordsurge/screens/03-results.jpg" width="900" height="1600" alt="A WordSurge results screen showing the score, best word and peak multiplier" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Power-ups -->
+    <section id="powerups">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Power-ups</span>
+          <h2 class="h2">Five ways to turn the tide</h2>
+          <p class="lead">Each one recharges over time, and every letter you find takes a second off every recharge.</p>
+        </div>
+        <div class="grid grid-2">
+          <div class="panel power reveal" style="--p:var(--reveal)">
+            <div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1.5 12S5 5.5 12 5.5 22.5 12 22.5 12 19 18.5 12 18.5 1.5 12 1.5 12Z"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+            <div><h3 class="h3">Reveal</h3><p class="muted">Lights up 3 words on the board for you to trace.</p><p class="timing">Lasts 7s · recharges in 2:00</p></div>
+          </div>
+          <div class="panel power reveal" style="--p:var(--freeze);--d:1">
+            <div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/></svg></div>
+            <div><h3 class="h3">Freeze</h3><p class="muted">Stops everything: pieces, clock and board. Find words calmly.</p><p class="timing">Lasts 7s · recharges in 2:00</p></div>
+          </div>
+          <div class="panel power reveal" style="--p:var(--purge)">
+            <div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5.5 5.5l13 13M18.5 5.5l-13 13"/></svg></div>
+            <div><h3 class="h3">Purge</h3><p class="muted">Pick up to 5 letters and remove them.</p><p class="timing">Recharges in 2:00</p></div>
+          </div>
+          <div class="panel power reveal" style="--p:var(--hold);--d:1">
+            <div class="orb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg></div>
+            <div><h3 class="h3">Hold</h3><p class="muted">Stops the falling piece while the clock keeps running.</p><p class="timing">Lasts 7s · recharges in 1:20</p></div>
+          </div>
+          <div class="panel power reveal" style="--p:var(--slow)">
+            <div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
+            <div><h3 class="h3">Slow</h3><p class="muted">Pieces fall at half speed.</p><p class="timing">Lasts 20s · recharges in 5:00</p></div>
+          </div>
+          <div class="panel power reveal" style="--p:var(--accent);--d:1">
+            <div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div>
+            <div><h3 class="h3">One save per run</h3><p class="muted">Reach the top and your top 3 rows clear, once a run. Daily Surge has no save.</p><p class="timing">Automatic</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaderboards -->
+    <section id="compete">
+      <div class="container split flip">
+        <div class="reveal">
+          <span class="eyebrow">Leaderboards and seasons</span>
+          <h2 class="h2">Play with everyone, fairly</h2>
+          <p class="lead">Leaderboards run on Google Play Games, so you play under your own Play Games name and avatar, with no WordSurge account.</p>
+          <ul class="ticks">
+            <li><span><b>Today, Season and All time</b> views for WordSurge and Compete.</span></li>
+            <li><span><b>XP boards</b> for all time, this season and today, from every mode.</span></li>
+            <li><span><b>Daily puzzle and Daily Surge</b> boards, where everyone plays the same board.</span></li>
+            <li><span><b>Seven-day seasons</b> start every Sunday; daily boards reset at 07:00 UTC.</span></li>
+            <li><span><b>Offline friendly:</b> results wait on your phone and send when you’re back online.</span></li>
+          </ul>
+        </div>
+        <div class="reveal" style="--d:1">
+          <div class="shot"><img src="/assets/wordsurge/screens/01-home.jpg" width="900" height="1600" alt="The WordSurge home screen with the season countdown, daily puzzle and game modes" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements + accessibility -->
+    <section>
+      <div class="container split">
+        <div class="reveal">
+          <span class="eyebrow">Achievements and settings</span>
+          <h2 class="h2">Always something to chase</h2>
+          <p class="lead">210 achievements across every mode celebrate your best runs, longest words and biggest Surges.</p>
+          <ul class="ticks">
+            <li><span><b>Make it yours:</b> eight letter colours and three letter sizes in every mode.</span></li>
+            <li><span><b>High contrast</b> and <b>reduced motion</b> options, and screen-reader support.</span></li>
+            <li><span><b>Daily reminders</b> before your streak or the season runs out, if you want them.</span></li>
+            <li><span><b>Fair pause:</b> the board hides while paused, so nobody gets a free look.</span></li>
+          </ul>
+        </div>
+        <div class="reveal" style="--d:1">
+          <div class="shot"><img src="/assets/wordsurge/screens/04-celebration.jpg" width="900" height="1600" alt="An achievement unlocking with a celebration" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="screens">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Screenshots</span>
+          <h2 class="h2">Take a look around</h2>
+        </div>
+        <div class="gallery reveal" tabindex="0" aria-label="WordSurge screenshots, scroll sideways">
+          <figure><img src="/assets/wordsurge/screens/01-home.jpg" width="900" height="1600" alt="Home screen" loading="lazy"></figure>
+          <figure><img src="/assets/wordsurge/screens/02-wordsurge.jpg" width="900" height="1600" alt="WordSurge gameplay" loading="lazy"></figure>
+          <figure><img src="/assets/wordsurge/screens/03-results.jpg" width="900" height="1600" alt="Results" loading="lazy"></figure>
+          <figure><img src="/assets/wordsurge/screens/04-celebration.jpg" width="900" height="1600" alt="Achievement celebration" loading="lazy"></figure>
+          <figure><img src="/assets/wordsurge/screens/05-adventure.jpg" width="900" height="1600" alt="Adventure map" loading="lazy"></figure>
+          <figure><img src="/assets/wordsurge/screens/06-mystery.jpg" width="900" height="1600" alt="Mystery riddle" loading="lazy"></figure>
+          <figure><img src="/assets/wordsurge/screens/07-compete.jpg" width="900" height="1600" alt="Compete mode" loading="lazy"></figure>
+          <figure><img src="/assets/wordsurge/screens/08-classic.jpg" width="900" height="1600" alt="Classic word search" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2 class="h2">Good to know</h2>
+        </div>
+        <div class="faq">
+          <details class="panel reveal"><summary>Is WordSurge free?</summary><p>Yes. WordSurge is free to download and play, and is supported by ads.</p></details>
+          <details class="panel reveal"><summary>Do I need an account?</summary><p>No. You can play every mode as a guest. Sign in to Google Play Games, with the profile you already have, to appear on leaderboards and back up your progress.</p></details>
+          <details class="panel reveal"><summary>Can I play offline?</summary><p>Yes, every mode except Compete works offline. Leaderboard results wait on your phone and send when you reconnect.</p></details>
+          <details class="panel reveal"><summary>How do I move my progress to a new phone?</summary><p>Sign in to Google Play Games on both phones. Your progress is backed up to your profile, and the new phone offers to restore it.</p></details>
+          <details class="panel reveal"><summary>Why don’t I appear on the leaderboard?</summary><p>Google keeps private Play Games profiles out of public rankings. Make your profile visible in Settings → Google → All services → Play Games → Profile visibility. The game shows where you would rank and how to change it.</p></details>
+          <details class="panel reveal"><summary>Is there an iPhone version?</summary><p>Not yet. WordSurge is on Android today, and an iPhone and iPad version with Game Center is planned.</p></details>
+          <details class="panel reveal"><summary>How do I delete my data?</summary><p>Reset progress in Settings removes data on your phone. Play Games data can be deleted in the Google Play Games app. See our <a href="/privacy.html" style="color:var(--accent);text-decoration:underline">Privacy Policy</a> for details.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="tiles" aria-hidden="true"><span class="tile drop" style="--i:0">S</span><span class="tile drop" style="--i:1">U</span><span class="tile drop dim" style="--i:2">R</span><span class="tile drop" style="--i:3">G</span><span class="tile drop" style="--i:4">E</span></div>
+          <h2 class="h2">Ready to surge?</h2>
+          <p class="lead">Download free and start your first run in seconds.</p>
+          <div class="hero-actions">
+            <a href="https://play.google.com/store/apps/details?id=com.syntech.wordsurge" class="btn btn-primary btn-store" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 1.8 13.8 12 3.6 22.2a1 1 0 0 1-.6-.9V2.7a1 1 0 0 1 .6-.9Zm10.9 10.9 2.3 2.3-10.9 6.3 8.6-8.6Zm3.2-3.2 2.3 2.3a1 1 0 0 1 0 1.4l-2.3 2.3-2.3-2.5 2.3-3.5ZM5.9 2.7 16.8 9l-2.3 2.3-8.6-8.6Z"/></svg>
+              <span class="store-text"><small>Get it on</small><b>Google Play</b></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="/" class="brand" aria-label="SynTech Games home">
+            <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 35 11.5v17L20 37 5 28.5v-17Z" fill="#1a0b14" stroke="#ff5a6e" stroke-width="2.5" stroke-linejoin="round"/><path d="M20 12v16M15 15.5l5-3.5 5 3.5M15 24.5l5 3.5 5-3.5" stroke="#ff8a98" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="brand-name">SynTech <span>Games</span></span>
+          </a>
+          <p class="footer-tagline">Games that never sit still.</p>
+        </div>
+        <div><h4>Games</h4><a href="/wordsurge.html">WordSurge</a><a href="https://play.google.com/store/apps/details?id=com.syntech.wordsurge" rel="noopener">Google Play</a></div>
+        <div><h4>Legal</h4><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a></div>
+        <div><h4>Contact</h4><a href="mailto:support@syntechgames.com">Support</a><a href="mailto:hello@syntechgames.com">Hello</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; <span data-year>2026</span> SynTech (Pty) Ltd. All rights reserved.</span><span>Google Play and the Google Play logo are trademarks of Google LLC.</span></div>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

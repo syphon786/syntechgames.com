@@ -1,304 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WordSurge — The Ultimate Word Search Challenge</title>
-  <meta name="description" content="WordSurge is a fast-paced word search game with five unique modes. Adventure, Mystery, Competitive, Traditional, and Adaptive. Download now on iOS and Android.">
-  <meta name="keywords" content="word search, word game, puzzle game, mobile game, brain training, word puzzle">
-  <meta property="og:title" content="WordSurge — The Ultimate Word Search Challenge">
-  <meta property="og:description" content="Five game modes. Global leaderboards. One obsession. Download the word search game everyone's talking about.">
+  <title>SynTech Games: word games that never sit still</title>
+  <meta name="description" content="SynTech Games is an independent studio making fast, beautiful mobile games. Our first game, WordSurge, is out now on Google Play.">
+  <meta name="theme-color" content="#03030d">
+  <meta property="og:title" content="SynTech Games">
+  <meta property="og:description" content="An independent studio making fast, beautiful mobile games. WordSurge is out now on Google Play.">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:url" content="https://syntechgames.com/">
+  <meta property="og:image" content="https://syntechgames.com/assets/wordsurge/feature-graphic.jpg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/wordsurge/icon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <!-- Particle canvas background -->
-  <canvas id="particles" aria-hidden="true"></canvas>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="stars" aria-hidden="true"></canvas>
 
-  <!-- Navigation -->
-  <nav class="nav">
+  <nav class="nav" aria-label="Main">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">
-        <span class="nav-logo-icon">⬡</span>
-        <span class="nav-logo-text">WordSurge</span>
+      <a href="/" class="brand" aria-label="SynTech Games home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 35 11.5v17L20 37 5 28.5v-17Z" fill="#1a0b14" stroke="#ff5a6e" stroke-width="2.5" stroke-linejoin="round"/><path d="M20 12v16M15 15.5l5-3.5 5 3.5M15 24.5l5 3.5 5-3.5" stroke="#ff8a98" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="brand-name">SynTech <span>Games</span></span>
       </a>
       <div class="nav-links">
-        <a href="#modes">Modes</a>
-        <a href="#features">Features</a>
-        <a href="#reviews">Highlights</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
+        <a href="/#games">Games</a>
+        <a href="/wordsurge.html">WordSurge</a>
+        <a href="/#studio">Studio</a>
+        <a href="/#contact">Contact</a>
       </div>
-      <a href="#download" class="nav-cta">Download Free</a>
+      <a href="https://play.google.com/store/apps/details?id=com.syntech.wordsurge" class="btn btn-primary btn-small" rel="noopener">Play WordSurge</a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        #1 WORD GAME 2026
-      </div>
-      <h1 class="hero-title">
-        <span class="hero-title-line">Find Words.</span>
-        <span class="hero-title-line accent">Beat Everyone.</span>
-      </h1>
-      <p class="hero-subtitle">Five game modes. Global leaderboards. Endless fun. The word search game you won't be able to put down.</p>
-      <div class="hero-actions">
-        <a href="#download" class="btn btn-primary btn-glow">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-          App Store
-        </a>
-        <a href="#download" class="btn btn-secondary">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 010 1.38l-2.302 2.302L15.396 13l2.302-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
-          Google Play
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-number" data-target="5">0</span><span class="stat-label">Game Modes</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-number" data-target="150">0</span><span class="stat-label">Riddles</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-number" data-target="250">0</span><span class="stat-label">Adventure Stages</span></div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="phone-mockup">
-        <div class="phone-notch"></div>
-        <div class="phone-screen">
-          <div class="mock-grid">
-            <div class="mock-header">
-              <span class="mock-timer">⏱ 01:42</span>
-              <span class="mock-streak">🔥 x3</span>
-            </div>
-            <div class="mock-cells" id="mockGrid"></div>
-            <div class="mock-words">
-              <span class="mock-word found">EAGLE</span>
-              <span class="mock-word found">SOAR</span>
-              <span class="mock-word active">CLIFF</span>
-              <span class="mock-word">NEST</span>
-              <span class="mock-word">WING</span>
-            </div>
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Independent game studio</span>
+          <h1 class="h1">Games that <span class="glow-text">never sit still.</span></h1>
+          <p class="lead">SynTech Games makes fast, polished mobile games you can pick up in a minute and keep coming back to. Our first game, WordSurge, is out now.</p>
+          <div class="hero-actions">
+            <a href="https://play.google.com/store/apps/details?id=com.syntech.wordsurge" class="btn btn-primary btn-store" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 1.8 13.8 12 3.6 22.2a1 1 0 0 1-.6-.9V2.7a1 1 0 0 1 .6-.9Zm10.9 10.9 2.3 2.3-10.9 6.3 8.6-8.6Zm3.2-3.2 2.3 2.3a1 1 0 0 1 0 1.4l-2.3 2.3-2.3-2.5 2.3-3.5ZM5.9 2.7 16.8 9l-2.3 2.3-8.6-8.6Z"/></svg>
+              <span class="store-text"><small>Get WordSurge on</small><b>Google Play</b></span>
+            </a>
+            <a href="/wordsurge.html" class="btn btn-ghost">Explore WordSurge</a>
           </div>
         </div>
+        <div class="stage-art reveal" aria-hidden="true">
+          <div class="tiles word-row">
+            <span class="tile drop" style="--i:0">W</span><span class="tile drop dim" style="--i:1">O</span><span class="tile drop" style="--i:2">R</span><span class="tile drop" style="--i:3">D</span>
+          </div>
+          <div class="tiles word-row">
+            <span class="tile drop dim" style="--i:4">S</span><span class="tile drop" style="--i:5">U</span><span class="tile drop" style="--i:6">R</span><span class="tile drop dim" style="--i:7">G</span><span class="tile drop" style="--i:8">E</span>
+          </div>
+          <p class="caption">Stack · Find · Surge</p>
+        </div>
       </div>
-      <div class="phone-shadow"></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Social Proof Banner -->
-  <section class="social-proof reveal">
-    <div class="container">
-      <div class="proof-items">
-        <div class="proof-item">🎮 <span>5 Unique Game Modes</span></div>
-        <div class="proof-item">🌍 <span>Global Leaderboards</span></div>
-        <div class="proof-item">📱 <span>iOS & Android</span></div>
-      </div>
-    </div>
-  </section>
-</body>
-</html>
+    <!-- Games -->
+    <section id="games">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Our games</span>
+          <h2 class="h2">Play now, and what’s next</h2>
+          <p class="lead">Every SynTech game is free to play, made to look great and run smoothly on everyday phones.</p>
+        </div>
 
-  <!-- Game Modes -->
-  <section class="modes" id="modes">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-badge">GAME MODES</span>
-        <h2 class="section-title">Five Ways to Play</h2>
-        <p class="section-subtitle">From relaxing puzzles to intense competition — there's a mode for every mood.</p>
-      </div>
-      <div class="modes-grid">
-        <div class="mode-card mode-adventure reveal" style="--delay: 0">
-          <div class="mode-icon-wrap"><span class="mode-emoji">🗺️</span></div>
-          <h3>Adventure</h3>
-          <p class="mode-tagline">EXPLORE THE WORLD</p>
-          <p>Journey through 10 themed tracks with 25 stages each. Jungles, oceans, volcanoes, and beyond. Beat the clock to earn stars.</p>
-          <div class="mode-highlights">
-            <span>250 Stages</span>
-            <span>10 Zones</span>
-            <span>Timed</span>
-          </div>
-        </div>
-        <div class="mode-card mode-mystery reveal" style="--delay: 1">
-          <div class="mode-icon-wrap"><span class="mode-emoji">🔮</span></div>
-          <h3>Mystery</h3>
-          <p class="mode-tagline">SOLVE THE RIDDLE</p>
-          <p>Crack 150 riddles to reveal hidden words. Letters appear as clues over time. How fast can you solve them all?</p>
-          <div class="mode-highlights">
-            <span>150 Riddles</span>
-            <span>3-Star Rating</span>
-            <span>Clues</span>
-          </div>
-        </div>
-        <div class="mode-card mode-competitive reveal" style="--delay: 2">
-          <div class="mode-icon-wrap"><span class="mode-emoji">⚔️</span></div>
-          <h3>Competitive</h3>
-          <p class="mode-tagline">CHALLENGE THE WORLD</p>
-          <p>Race against players globally. Speed and accuracy determine your rank on daily, weekly, and monthly leaderboards.</p>
-          <div class="mode-highlights">
-            <span>Global Ranks</span>
-            <span>Daily Reset</span>
-            <span>Real-time</span>
-          </div>
-        </div>
-        <div class="mode-card mode-traditional reveal" style="--delay: 3">
-          <div class="mode-icon-wrap"><span class="mode-emoji">🍃</span></div>
-          <h3>Traditional</h3>
-          <p class="mode-tagline">CLASSIC WORD PUZZLE</p>
-          <p>The pure word search experience. Find all hidden words in the grid. Build streaks for bonus multipliers.</p>
-          <div class="mode-highlights">
-            <span>Streak Bonus</span>
-            <span>10×10 Grid</span>
-            <span>Relaxing</span>
-          </div>
-        </div>
-        <div class="mode-card mode-adaptive reveal" style="--delay: 4">
-          <div class="mode-icon-wrap"><span class="mode-emoji">🧠</span></div>
-          <h3>Adaptive</h3>
-          <p class="mode-tagline">TEST YOUR MEMORY</p>
-          <p>The word list flashes and disappears. Memorize the words, then find them on the grid before time runs out.</p>
-          <div class="mode-highlights">
-            <span>Memory Test</span>
-            <span>Vanishing Words</span>
-            <span>Focus</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section class="features" id="features">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-badge">FEATURES</span>
-        <h2 class="section-title">Built for Obsession</h2>
-        <p class="section-subtitle">Every detail designed to keep you coming back.</p>
-      </div>
-      <div class="features-grid">
-        <div class="feature-card reveal">
-          <div class="feature-icon">🏆</div>
-          <h3>Global Leaderboards</h3>
-          <p>Compete on daily, weekly, monthly, and all-time XP leaderboards. See your rank rise in real-time.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">⚡</div>
-          <h3>XP & Levels</h3>
-          <p>Earn XP from every game mode. Level up with Fibonacci-based progression. Show off your level globally.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🔥</div>
-          <h3>Streak System</h3>
-          <p>Find words quickly to build streaks up to 10×. Multipliers carry between games for dedicated players.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">📶</div>
-          <h3>Play Offline</h3>
-          <p>No internet? No problem. Play any mode offline. Scores sync automatically when you reconnect.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🎵</div>
-          <h3>Immersive Audio</h3>
-          <p>Original soundtrack with adaptive music that intensifies as time runs low. Satisfying SFX for every action.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">📊</div>
-          <h3>Detailed Stats</h3>
-          <p>Track everything — games played, words found, personal bests, monthly history, and more.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reviews -->
-  <section class="reviews" id="reviews">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-badge">THE GAME</span>
-        <h2 class="section-title">What Makes It Addictive</h2>
-      </div>
-      <div class="reviews-grid">
-        <div class="review-card reveal">
-          <div class="review-stars">🗺️</div>
-          <p class="review-text">Journey through jungles, oceans, volcanoes, and space across 250 adventure stages. Each zone has unique themed words.</p>
-          <div class="review-author">Adventure Mode</div>
-        </div>
-        <div class="review-card reveal">
-          <div class="review-stars">⚔️</div>
-          <p class="review-text">Climb daily, weekly, and monthly leaderboards. Your XP accumulates across all modes — every game counts.</p>
-          <div class="review-author">Global Competition</div>
-        </div>
-        <div class="review-card reveal">
-          <div class="review-stars">🔮</div>
-          <p class="review-text">150 riddles that reveal words letter by letter. Solve them fast for 3 stars, or wait for clues at the cost of time.</p>
-          <div class="review-author">Mystery Mode</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Download CTA -->
-  <section class="cta" id="download">
-    <div class="container">
-      <div class="cta-card reveal">
-        <div class="cta-glow"></div>
-        <h2>Ready to Surge?</h2>
-        <p>Download free today and start your word search journey.</p>
-        <div class="cta-actions">
-          <a href="#" class="btn btn-primary btn-large btn-glow">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-            Download for iOS
+        <article class="panel game-card reveal" aria-labelledby="ws-title">
+          <a class="media" href="/wordsurge.html" aria-label="Learn about WordSurge">
+            <img src="/assets/wordsurge/feature-graphic.jpg" width="1024" height="500" alt="WordSurge: glowing letter tiles in a dark well" loading="lazy">
           </a>
-          <a href="#" class="btn btn-secondary btn-large">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 010 1.38l-2.302 2.302L15.396 13l2.302-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
-            Download for Android
-          </a>
-        </div>
-        <p class="cta-note">Free to play • No ads in gameplay • Available worldwide</p>
-      </div>
-    </div>
-  </section>
+          <div class="body">
+            <div class="game-meta">
+              <img src="/assets/wordsurge/icon-180.png" width="64" height="64" alt="">
+              <div>
+                <h3 class="h3" id="ws-title">WordSurge</h3>
+                <p class="small">Word puzzle · Android</p>
+              </div>
+            </div>
+            <div class="chip-row"><span class="chip live">Out now · 2.0</span><span class="chip">6 modes</span><span class="chip">210 achievements</span><span class="chip">Weekly seasons</span></div>
+            <p class="muted">Letter pieces fall into a glowing well. Stack them, trace words in any direction, chain them for a Surge, and climb the Google Play Games leaderboards.</p>
+            <div class="hero-actions">
+              <a href="https://play.google.com/store/apps/details?id=com.syntech.wordsurge" class="btn btn-primary btn-small" rel="noopener">Get it on Google Play</a>
+              <a href="/wordsurge.html" class="btn btn-ghost btn-small">See what’s inside</a>
+            </div>
+          </div>
+        </article>
 
-  <!-- Footer -->
+        <div class="grid grid-2" style="margin-top:16px">
+          <div class="panel soon-card reveal" style="--d:1">
+            <span class="eyebrow" style="margin:0">In development</span>
+            <h3 class="h3">Our next game</h3>
+            <p class="muted">Something new is on the way from the WordSurge team. Follow along on Google Play to hear first.</p>
+          </div>
+          <div class="panel soon-card reveal" style="--d:2">
+            <span class="eyebrow" style="margin:0">Coming to iPhone</span>
+            <h3 class="h3">WordSurge on iOS</h3>
+            <p class="muted">An iPhone and iPad version with Game Center leaderboards is planned after the Android launch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Studio -->
+    <section id="studio">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">The studio</span>
+          <h2 class="h2">Small team. High bar.</h2>
+          <p class="lead">SynTech Games is the games label of SynTech (Pty) Ltd, based in South Africa. We build games we want to play ourselves.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="panel card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg></div>
+            <h3 class="h3">Fast and fair</h3>
+            <p>Quick to start, smooth to play, and every leaderboard plays by the same rules for everyone.</p>
+          </div>
+          <div class="panel card reveal" style="--d:1">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+            <h3 class="h3">Your data stays yours</h3>
+            <p>No sign-up forms. Progress lives on your phone and in your own Play Games profile.</p>
+          </div>
+          <div class="panel card reveal" style="--d:2">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <h3 class="h3">Made for everyone</h3>
+            <p>High contrast, letter size and colour, and reduced motion are built in from day one.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="tiles" aria-hidden="true"><span class="tile" style="--s:44px">H</span><span class="tile dim" style="--s:44px">I</span></div>
+          <h2 class="h2">Say hello</h2>
+          <p class="lead">Questions, ideas, or something not working? We read every message.</p>
+          <div class="hero-actions">
+            <a href="mailto:support@syntechgames.com" class="btn btn-primary">Get support</a>
+            <a href="mailto:hello@syntechgames.com" class="btn btn-ghost">General enquiries</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="footer">
-    <div class="footer-inner">
+    <div class="container">
       <div class="footer-top">
-        <div class="footer-brand">
-          <span class="nav-logo-icon">⬡</span>
-          <span class="nav-logo-text">WordSurge</span>
-          <p class="footer-tagline">The word search game that challenges your mind.</p>
+        <div>
+          <a href="/" class="brand" aria-label="SynTech Games home">
+            <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 35 11.5v17L20 37 5 28.5v-17Z" fill="#1a0b14" stroke="#ff5a6e" stroke-width="2.5" stroke-linejoin="round"/><path d="M20 12v16M15 15.5l5-3.5 5 3.5M15 24.5l5 3.5 5-3.5" stroke="#ff8a98" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="brand-name">SynTech <span>Games</span></span>
+          </a>
+          <p class="footer-tagline">Games that never sit still.</p>
         </div>
-        <div class="footer-links">
-          <div class="footer-col">
-            <h4>Game</h4>
-            <a href="#modes">Game Modes</a>
-            <a href="#features">Features</a>
-            <a href="#reviews">Highlights</a>
-          </div>
-          <div class="footer-col">
-            <h4>Legal</h4>
-            <a href="/privacy.html">Privacy Policy</a>
-            <a href="/terms.html">Terms of Service</a>
-          </div>
-          <div class="footer-col">
-            <h4>Company</h4>
-            <a href="mailto:hello@syntechgames.com">Contact Us</a>
-            <a href="mailto:support@syntechgames.com">Support</a>
-          </div>
-        </div>
+        <div><h4>Games</h4><a href="/wordsurge.html">WordSurge</a><a href="https://play.google.com/store/apps/details?id=com.syntech.wordsurge" rel="noopener">Google Play</a></div>
+        <div><h4>Legal</h4><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a></div>
+        <div><h4>Contact</h4><a href="mailto:support@syntechgames.com">Support</a><a href="mailto:hello@syntechgames.com">Hello</a></div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 SynTech (Pty) Ltd. All rights reserved.</p>
-      </div>
+      <div class="footer-bottom"><span>&copy; <span data-year>2026</span> SynTech (Pty) Ltd. All rights reserved.</span><span>Google Play and the Google Play logo are trademarks of Google LLC.</span></div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>

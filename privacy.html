@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — WordSurge by SynTech</title>
   <meta name="description" content="Privacy Policy for the WordSurge mobile application by SynTech (Pty) Ltd.">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="theme-color" content="#03030d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <canvas id="particles" aria-hidden="true"></canvas>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="stars" aria-hidden="true"></canvas>
 
-  <nav class="nav">
+  <nav class="nav" aria-label="Main">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">
-        <span class="nav-logo-icon">⬡</span>
-        <span class="nav-logo-text">WordSurge</span>
+      <a href="/" class="brand" aria-label="SynTech Games home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 35 11.5v17L20 37 5 28.5v-17Z" fill="#1a0b14" stroke="#ff5a6e" stroke-width="2.5" stroke-linejoin="round"/><path d="M20 12v16M15 15.5l5-3.5 5 3.5M15 24.5l5 3.5 5-3.5" stroke="#ff8a98" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="brand-name">SynTech <span>Games</span></span>
       </a>
       <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/privacy.html">Privacy</a>
+        <a href="/#games">Games</a>
+        <a href="/wordsurge.html">WordSurge</a>
+        <a href="/privacy.html" aria-current="page">Privacy</a>
         <a href="/terms.html">Terms</a>
       </div>
+      <a href="/" class="btn btn-ghost btn-small">Home</a>
     </div>
   </nav>
 
-  <div class="legal-page">
+  <main id="main" class="legal-page">
     <div class="legal-card">
       <h1>Privacy Policy</h1>
       <p class="last-updated">Last updated: November 2026</p>
@@ -94,9 +98,9 @@
       <h2>4. Third-Party Services</h2>
       <p>The App uses the following services:</p>
       <ul>
-        <li>Google Play Games Services (profiles, leaderboards, saved games) — <a href="https://policies.google.com/privacy" style="color: var(--indigo);">policies.google.com/privacy</a></li>
-        <li>Apple Game Center (iOS) — <a href="https://www.apple.com/legal/privacy/" style="color: var(--indigo);">apple.com/legal/privacy</a></li>
-        <li>Google AdMob (Advertising) — <a href="https://policies.google.com/technologies/ads" style="color: var(--indigo);">policies.google.com/technologies/ads</a></li>
+        <li>Google Play Games Services (profiles, leaderboards, saved games) — <a href="https://policies.google.com/privacy" >policies.google.com/privacy</a></li>
+        <li>Apple Game Center (iOS) — <a href="https://www.apple.com/legal/privacy/" >apple.com/legal/privacy</a></li>
+        <li>Google AdMob (Advertising) — <a href="https://policies.google.com/technologies/ads" >policies.google.com/technologies/ads</a></li>
         <li>Google Play / Apple App Store (purchases) — their own privacy policies</li>
       </ul>
 
@@ -158,22 +162,20 @@
       <div class="contact-box">
         <ul>
           <li>Company: SynTech (Pty) Ltd</li>
-          <li>Email: <a href="mailto:privacy@syntechgames.com" style="color: var(--indigo);">privacy@syntechgames.com</a></li>
-          <li>Website: <a href="https://syntechgames.com/privacy.html" style="color: var(--indigo);">syntechgames.com/privacy</a></li>
+          <li>Email: <a href="mailto:privacy@syntechgames.com" >privacy@syntechgames.com</a></li>
+          <li>Website: <a href="https://syntechgames.com/privacy.html" >syntechgames.com/privacy</a></li>
           <li>Location: South Africa</li>
         </ul>
       </div>
     </div>
-  </div>
+  </main>
 
   <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-bottom" style="border-top: none;">
-        <p>&copy; 2026 SynTech (Pty) Ltd. All rights reserved.</p>
-      </div>
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;padding-top:0"><span>&copy; <span data-year>2026</span> SynTech (Pty) Ltd. All rights reserved.</span><span><a href="/privacy.html" style="display:inline">Privacy</a> · <a href="/terms.html" style="display:inline">Terms</a> · <a href="mailto:support@syntechgames.com" style="display:inline">Support</a></span></div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>

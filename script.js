@@ -1,151 +1,81 @@
-// ── Floating Particle System ──────────────────────────────────────────────
+// SynTech Games: small, dependency-free page effects.
+document.documentElement.classList.remove('no-js');
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ── Starfield: slow cyan and indigo specks, like the game's menus ─────────
 (function () {
-  const canvas = document.getElementById('particles');
+  const canvas = document.getElementById('stars');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  let particles = [];
-  let w, h;
+  let w = 0;
+  let h = 0;
+  let stars = [];
 
-  function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight * 4;
-  }
-
-  function createParticles() {
-    particles = [];
-    const count = Math.floor((w * h) / 25000);
-    for (let i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        size: Math.random() * 2 + 0.5,
-        speedX: (Math.random() - 0.5) * 0.3,
-        speedY: (Math.random() - 0.5) * 0.2,
-        opacity: Math.random() * 0.4 + 0.1,
-        hue: Math.random() > 0.7 ? 260 : 230,
-      });
-    }
+  function size() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = window.innerWidth;
+    h = window.innerHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const count = Math.min(140, Math.floor((w * h) / 14000));
+    stars = Array.from({ length: count }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 1.4 + 0.3,
+      vy: Math.random() * 0.12 + 0.03,
+      a: Math.random() * 0.5 + 0.15,
+      cyan: Math.random() > 0.65,
+    }));
   }
 
   function draw() {
     ctx.clearRect(0, 0, w, h);
-    for (const p of particles) {
-      p.x += p.speedX;
-      p.y += p.speedY;
-      if (p.x < 0) p.x = w;
-      if (p.x > w) p.x = 0;
-      if (p.y < 0) p.y = h;
-      if (p.y > h) p.y = 0;
+    for (const s of stars) {
+      if (!reduceMotion) {
+        s.y -= s.vy;
+        if (s.y < -2) { s.y = h + 2; s.x = Math.random() * w; }
+      }
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = `hsla(${p.hue}, 70%, 70%, ${p.opacity})`;
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = s.cyan ? `rgba(94, 235, 247, ${s.a})` : `rgba(174, 182, 216, ${s.a * 0.8})`;
       ctx.fill();
     }
-    requestAnimationFrame(draw);
+    if (!reduceMotion) requestAnimationFrame(draw);
   }
 
-  resize();
-  createParticles();
-  window.addEventListener('resize', () => { resize(); createParticles(); });
-  requestAnimationFrame(draw);
+  size();
+  draw();
+  window.addEventListener('resize', () => { size(); if (reduceMotion) draw(); });
 })();
 
-// ── Scroll Reveal Animations ──────────────────────────────────────────────
+// ── Reveal sections as they scroll in ─────────────────────────────────────
 (function () {
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+  const items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || reduceMotion) {
+    items.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-  reveals.forEach(el => observer.observe(el));
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  items.forEach(el => io.observe(el));
 })();
 
-// ── Counter Animation ────────────────────────────────────────────────────
-(function () {
-  const counters = document.querySelectorAll('.stat-number');
-  let animated = false;
-
-  function animateCounters() {
-    if (animated) return;
-    animated = true;
-
-    counters.forEach(counter => {
-      const target = parseFloat(counter.dataset.target);
-      const isDecimal = target % 1 !== 0;
-      const duration = 2000;
-      const start = performance.now();
-
-      function update(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = target * eased;
-
-        if (isDecimal) {
-          counter.textContent = current.toFixed(1);
-        } else if (target >= 1000) {
-          counter.textContent = Math.floor(current).toLocaleString() + '+';
-        } else {
-          counter.textContent = Math.floor(current);
-        }
-
-        if (progress < 1) requestAnimationFrame(update);
-      }
-
-      requestAnimationFrame(update);
-    });
-  }
-
-  const statsSection = document.querySelector('.hero-stats');
-  if (statsSection) {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) animateCounters();
-    }, { threshold: 0.5 });
-    observer.observe(statsSection);
-  }
-})();
-
-// ── Mock Grid in Phone ───────────────────────────────────────────────────
-(function () {
-  const grid = document.getElementById('mockGrid');
-  if (!grid) return;
-  const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const HIGHLIGHT_WORD = 'CLIFF';
-  const highlightRow = 2;
-  const highlightStartCol = 1;
-
-  for (let r = 0; r < 7; r++) {
-    for (let c = 0; c < 7; c++) {
-      const cell = document.createElement('div');
-      cell.className = 'mock-cell';
-      const isHighlight = r === highlightRow && c >= highlightStartCol && c < highlightStartCol + HIGHLIGHT_WORD.length;
-      if (isHighlight) {
-        cell.textContent = HIGHLIGHT_WORD[c - highlightStartCol];
-        cell.classList.add('highlight');
-      } else {
-        cell.textContent = ALPHABET[Math.floor(Math.random() * 26)];
-      }
-      grid.appendChild(cell);
-    }
-  }
-})();
-
-// ── Navbar scroll effect ─────────────────────────────────────────────────
+// ── Nav gets firmer once the page scrolls ─────────────────────────────────
 (function () {
   const nav = document.querySelector('.nav');
   if (!nav) return;
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      nav.style.borderBottomColor = 'rgba(255, 255, 255, 0.1)';
-      nav.style.background = 'rgba(10, 10, 26, 0.95)';
-    } else {
-      nav.style.borderBottomColor = 'rgba(255, 255, 255, 0.05)';
-      nav.style.background = 'rgba(10, 10, 26, 0.8)';
-    }
-  });
+  const update = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
 })();
+
+// ── Footer year ───────────────────────────────────────────────────────────
+document.querySelectorAll('[data-year]').forEach(el => { el.textContent = String(new Date().getFullYear()); });
